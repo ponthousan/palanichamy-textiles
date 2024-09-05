@@ -1,0 +1,24 @@
+{
+  "header": {
+      "title": "Palanichamy Textiles"
+  },
+  "textiles": {
+      "name": "Bill Generate",
+      "billno": "Bill No",
+      "enterbillno": "Please enter bill no",
+      "entershopname": "Please enter shop name",
+      "entermodeoftransport": "Please enter mode of transport",
+      "enterbilldate": "Please enter bill date",
+      "enterdescription": "Please enter description",
+      "enternoofbag": "Please enter noOfBag",
+      "enterunit": "Please enter unit",
+      "enterrate": "Please enter rate",
+      "shopname": "Shop Name",
+      "modeoftransport": "Mode of Transport",
+      "billdate": "Bill Date",
+      "description": "Description",
+      "noofbag": "No Of Bag",
+      "weight": "Weight",
+      "rate": "Rate"
+  }
+}

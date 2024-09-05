@@ -1,0 +1,13 @@
+.modal {
+    display: block;
+    background-color: rgb(0, 0, 0, 0.4);
+}
+.modal-dialog {
+    margin: 15% auto;
+}
+.modal-header .close {
+    cursor: pointer;
+}
+.alert-footer button {
+    cursor: pointer;
+}

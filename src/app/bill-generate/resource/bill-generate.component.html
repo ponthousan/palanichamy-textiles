@@ -1,0 +1,183 @@
+<form [formGroup]="billGenerateForm" #billDetails="ngForm" (ngSubmit)="billGenerateForm.valid && saveBillDetails()"
+  class="border border-success rounded p-3">
+  <div class="header pb-3">
+    <!-- <img src="{{url}}/assets/Ponnayiram.jpg"/> -->
+    {{'textiles.name' | translate }}</div>
+  <div class="register-body">
+    <div class="row form-group mb-4">
+      <div class="col-md-6">
+        <label class="mb-3">{{'textiles.billno' | translate }}</label>
+        <div>
+          <input type="text" class="form-control" formControlName="customer_bill_no" />
+          <div *ngIf="billDetails.submitted && f['customer_bill_no'].errors">
+            <div *ngIf="f['customer_bill_no'].errors['required']" class="text-danger">{{'textiles.enterbillno' |
+              translate }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label class="mb-3">{{'textiles.shopname' | translate }}</label>
+        <div>
+          <select class="form-control" formControlName="customer_gst_no">
+            <option value="" selected>Select</option>x
+            <option *ngFor="let shopData of getCustomerData" [ngValue]="shopData.customer_gst_no">
+              {{shopData['customer_name']}}
+            </option>
+          </select>
+          <div *ngIf="billDetails.submitted && f['customer_gst_no'].errors">
+            <div *ngIf="f['customer_gst_no'].errors['required']" class="text-danger">{{'textiles.entershopname' |
+              translate }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row form-group mb-4">
+      <div class="col-md-4">
+        <label class="mb-3">{{'textiles.modeoftransport' | translate }}</label>
+        <div>
+          <select class="form-control" formControlName="customer_mode_transport">
+            <option value="">Select</option>
+            <option value="1">Van</option>
+            <option value="2">Jeyavilas</option>
+            <option value="3">TRMS LORRY</option>
+          </select>
+          <div *ngIf="billDetails.submitted && f['customer_mode_transport'].errors">
+            <div *ngIf="f['customer_mode_transport'].errors['required']" class="text-danger">
+              {{'textiles.entermodeoftransport' | translate }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label class="mb-3">Vehicle No</label>
+        <div>
+          <input type="text" class="form-control" formControlName="customer_vehicle_no" />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label class="mb-3">{{'textiles.billdate' | translate }}</label>
+        <div>
+          <input type="date" class="form-control" formControlName="customer_bill_date" />
+          <div *ngIf="billDetails.submitted && f['customer_bill_date'].errors">
+            <div *ngIf="f['customer_bill_date'].errors['required']" class="text-danger">{{'textiles.enterbilldate' |
+              translate }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mb-4">
+      <div formArrayName="amountDescription">
+        <div *ngFor="let amountDesc of amountDescGroups.controls; let i=index">
+          <div [formGroupName]="i">
+            <div class="row form-group">
+              <div class="col-md-3">
+                <label class="mb-3">{{'textiles.description' | translate }}</label>
+                <div>
+                  <input type="text" class="form-control" formControlName="customer_description" />
+                  <div
+                    *ngIf="billDetails.submitted && amountDescGroups.controls[i].get('customer_description')?.errors">
+                    <div class="text-danger" *ngIf="amountDescGroups.controls[i].get('customer_description')?.errors">
+                      {{'textiles.enterdescription' | translate }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <label class="mb-3">HSN Code</label>
+                <div>
+                  <input type="text" class="form-control" formControlName="customer_hsn_code" />
+                  <div class="text-danger"
+                    *ngIf="billDetails.submitted && amountDescGroups.controls[i].get('customer_hsn_code')?.errors">
+                    {{'textiles.enternoofbag' | translate }}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <label class="mb-3">{{'textiles.noofbag' | translate }}</label>
+                <div>
+                  <input type="text" class="form-control" formControlName="customer_no_of_bag" (keyup)="changeWeight($event)" />
+                  <div class="text-danger"
+                    *ngIf="billDetails.submitted && amountDescGroups.controls[i].get('customer_no_of_bag')?.errors">
+                    {{'textiles.enternoofbag' | translate }}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <label class="mb-3">{{'textiles.weight' | translate }}</label>
+                <div>
+                  <input type="text" class="form-control" formControlName="customer_weight" />
+                  <div class="text-danger"
+                    *ngIf="billDetails.submitted && amountDescGroups.controls[i].get('customer_weight')?.errors">
+                    {{'textiles.enterunit' | translate }}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label class="mb-3">{{'textiles.rate' | translate }}</label>
+                <span class="update-desc">
+                  <i class="fa fa-plus-circle add-icon" (click)="addAmountDesc()"></i>
+                  <i class="fa fa-minus-circle remove-icon" (click)="removeAmountDesc(i)" *ngIf="i > 0"></i>
+                </span>
+                <div>
+                  <input type="text" class="form-control" formControlName="customer_rate" />
+                  <div class="text-danger"
+                    *ngIf="billDetails.submitted && amountDescGroups.controls[i].get('customer_rate')?.errors">
+                    {{'textiles.enterrate' | translate }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row form-group mb-3">
+      <div class="d-flex justify-content-center">
+        <button class="btn btn-success">Submit</button>
+      </div>
+    </div>
+  </div>
+</form>
+<div class="select-year row m-3" style="padding: 0 0 0 80%;">
+  <p-dropdown [options]="selectedYear" (onChange)="getBillDetails($event.value)" [(ngModel)]="currentYear" optionLabel="name"optionLabel="name" optionValue="code"></p-dropdown>
+</div>
+<p-table [value]="getBillData" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Bill No</th>
+      <th>Shop Name</th>
+      <th width="15%">Bill Date</th>
+      <th width="10%">Mode of Transport</th>
+      <th>Description</th>
+      <th>No of Bag</th>
+      <th>Weight</th>
+      <th>Rate</th>
+      <th width="15%">Action</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-data>
+    <tr *ngIf="getBillData.length > 0" [ngClass]="{'deleted-bill': data.deleted_flag == 'true'}">
+      <td>{{data.customer_bill_no}}</td>
+      <td>{{data.customer_name}}</td>
+      <td>{{data.customer_bill_date | date:'dd-MM-yyyy'}}</td>
+      <td>
+        <span *ngIf="data.customer_mode_transport == 1">Van</span>
+        <span *ngIf="data.customer_mode_transport == 2">Jeyavilas</span>
+      </td>
+      <td>{{data.customer_description}}</td>
+      <td>{{data.customer_no_of_bag}}</td>
+      <td>{{data.customer_weight}}</td>
+      <td>{{data.customer_rate}}</td>
+      <td>
+        <span class="px-2 pe-auto"><a (click)="exportAsPDF('open', data)"><i class="fa fa-download"></i></a></span>
+        <span class="px-2 pe-auto"><a (click)="editBillData(data)"><i class="fa fa-edit"></i></a></span>
+        <span class="px-2 pe-auto"><a (click)="deleteBillData(data)"><i class="fa fa-trash"></i></a></span>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <tr *ngIf="getBillData.length == 0">
+      <td colspan="8">No Records Found</td>
+    </tr>
+  </ng-template>
+</p-table>

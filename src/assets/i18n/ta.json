@@ -1,0 +1,24 @@
+{
+  "header": {
+      "title": "பழனிச்சாமி டெக்ஸ்டைல்ஸ்"
+  },
+  "textiles": {
+    "name": "பில் உருவாக்க",
+    "billno": "பில் எண்",
+    "enterbillno": "பில் எண்ணை உள்ளிடவும்",
+    "entershopname": "கடையின் பெயரை உள்ளிடவும்",
+    "entermodeoftransport": "போக்குவரத்து முறையை உள்ளிடவும்",
+    "enterbilldate": "பில் தேதியை உள்ளிடவும்",
+    "enterdescription": "பொருளின் பெயர் உள்ளிடவும்",
+    "enternoofbag": "பை எண்ணிக்கை உள்ளிடவும்",
+    "enterunit": "எடையை உள்ளிடவும்",
+    "enterrate": "தொகையை உள்ளிடவும்",
+    "shopname": "கடையின் பெயர்",
+    "modeoftransport": "போக்குவரத்து முறை",
+    "billdate": "பில் தேதி",
+    "description": "பொருளின் பெயர்",
+    "noofbag": "பை எண்ணிக்கை",
+    "weight": "எடை",
+    "rate": "தொகை"
+  }
+}
