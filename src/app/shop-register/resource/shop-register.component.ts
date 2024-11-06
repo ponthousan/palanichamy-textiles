@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { RegisterFormService } from '../service/register-form.service'
+import { RegisterFormService } from '../service/shop-register.service'
 import { I18nService } from 'src/app/i18n-service/i18n-service.service';
 
 @Component({
-  selector: 'app-register-form',
-  templateUrl: './register-form.component.html',
-  styleUrls: ['./register-form.component.scss']
+  selector: 'app-shop-register',
+  templateUrl: './shop-register.component.html',
+  styleUrls: ['./shop-register.component.scss']
 })
 export class RegisterFormComponent implements OnInit {
   searchMoviesCtrl = new FormControl();

@@ -23,8 +23,6 @@ import {MaterialExampleModule} from '../material.module';
     BrowserAnimationsModule,
     PanelMenuModule,
     AlertModule,
-    FormsModule,
-    ReactiveFormsModule,
     MaterialExampleModule,
     TranslateModule.forRoot({
       loader: {

@@ -1,0 +1,12 @@
+::ng-deep {
+  .header, .sidebar {
+    display: none;
+  }
+  .maincontent {
+    width: 100%;
+  }
+}
+.title {
+  font-size: 2rem;
+  color: red;
+}

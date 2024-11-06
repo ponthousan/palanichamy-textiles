@@ -1,0 +1,173 @@
+<div class="container d-flex justify-content-center">
+  <mat-card class="w-50" appearance="outlined">
+    <mat-card-header class="mb-3">
+      <mat-card-title class="title">Register</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && onRegisterSubmit()">
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label class="form-label">Name</label>
+          </div>
+          <div class="col-md-9">
+            <input type="text" class="form-control" formControlName="username" />
+          </div>
+          <div
+            *ngIf="registerForm.controls['username'].invalid && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)">
+            <div class="text-danger" *ngIf="registerForm.controls['username'].errors?.['required']">Username is required
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label class="form-label">Username</label>
+          </div>
+          <div class="col-md-9">
+            <input type="text" class="form-control" formControlName="username" />
+          </div>
+          <div
+            *ngIf="registerForm.controls['username'].invalid && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)">
+            <div class="text-danger" *ngIf="registerForm.controls['username'].errors?.['required']">Username is required
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label class="form-label">Password</label>
+          </div>
+          <div class="col-md-9">
+            <div class="input-group">
+              <input [type]="password" class="form-control" formControlName="password" />
+              <div class="input-group-append showpassword-icon">
+                <span class="input-group-text" id="basic-addon2">
+                  <i class="fa fa-eye-slash" aria-hidden="true" (click)="showPassword()" *ngIf="!showpass"></i>
+                  <i class="fa fa-eye" aria-hidden="true" (click)="showPassword()" *ngIf="showpass"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
+            <div class="text-danger" *ngIf="registerForm.controls['password'].errors?.['required']">Password is required
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label class="form-label">Confirm Password</label>
+          </div>
+          <div class="col-md-9">
+            <div class="input-group">
+              <input [type]="password" class="form-control" formControlName="confirmpassword" />
+              <div class="input-group-append showpassword-icon">
+                <span class="input-group-text" id="basic-addon2"><i class="fa fa-eye-slash" aria-hidden="true"
+                    (click)="showPassword()" *ngIf="!showpass"></i>
+                  <i class="fa fa-eye" aria-hidden="true" (click)="showPassword()" *ngIf="showpass"></i></span>
+              </div>
+            </div>
+          </div>
+          <div
+            *ngIf="registerForm.controls['confirmpassword'].invalid && (registerForm.controls['confirmpassword'].dirty || registerForm.controls['confirmpassword'].touched)">
+            <div class="text-danger" *ngIf="registerForm.controls['confirmpassword'].errors?.['required']">Confirm
+              Password
+              is required</div>
+            <div class="text-danger" *ngIf="registerForm.controls['confirmpassword'].errors?.['confirmValidator']">
+              Password
+              and Confirm Password is not matched</div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label class="form-label">Email Id</label>
+          </div>
+          <div class="col-md-9">
+            <input type="email" class="form-control" formControlName="emailid" />
+          </div>
+          <div
+            *ngIf="registerForm.controls['emailid'].invalid && (registerForm.controls['emailid'].dirty || registerForm.controls['emailid'].touched)">
+            <div class="text-danger" *ngIf="registerForm.controls['emailid'].errors?.['required']">Email Id is required
+            </div>
+            <div class="text-danger" *ngIf="registerForm.controls['emailid'].errors?.['pattern']">Please enter correct
+              Email
+              Id</div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label class="form-label">Phone Number</label>
+          </div>
+          <div class="col-md-9">
+            <input type="number" class="form-control" formControlName="phonenumber" />
+          </div>
+          <div
+            *ngIf="registerForm.controls['phonenumber'].invalid && (registerForm.controls['phonenumber'].dirty || registerForm.controls['phonenumber'].touched)">
+            <div class="text-danger" *ngIf="registerForm.controls['phonenumber'].errors?.['required']">Phone Number is
+              required</div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label class="form-label">Address 1</label>
+          </div>
+          <div class="col-md-9">
+            <input type="text" class="form-control" formControlName="address1" />
+          </div>
+          <div
+            *ngIf="registerForm.controls['address1'].invalid && (registerForm.controls['address1'].dirty || registerForm.controls['address1'].touched)">
+            <div class="text-danger" *ngIf="registerForm.controls['address1'].errors?.['required']">Address1 is required
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label class="form-label">Address 2</label>
+          </div>
+          <div class="col-md-9">
+            <input type="text" class="form-control" formControlName="address2" />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label class="form-label">City</label>
+          </div>
+          <div class="col-md-9">
+            <input type="text" class="form-control" formControlName="city" />
+          </div>
+          <div
+            *ngIf="registerForm.controls['city'].invalid && (registerForm.controls['city'].dirty || registerForm.controls['city'].touched)">
+            <div class="text-danger" *ngIf="registerForm.controls['city'].errors?.['required']">City is required</div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label class="form-label">District</label>
+          </div>
+          <div class="col-md-9">
+            <input type="text" class="form-control" formControlName="district" />
+          </div>
+          <div
+            *ngIf="registerForm.controls['district'].invalid && (registerForm.controls['district'].dirty || registerForm.controls['district'].touched)">
+            <div class="text-danger" *ngIf="registerForm.controls['district'].errors?.['required']">District is required
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label class="form-label">State</label>
+          </div>
+          <div class="col-md-9">
+            <input type="text" class="form-control" formControlName="state" />
+          </div>
+          <div
+            *ngIf="registerForm.controls['state'].invalid && (registerForm.controls['state'].dirty || registerForm.controls['state'].touched)">
+            <div class="text-danger" *ngIf="registerForm.controls['state'].errors?.['required']">State is required</div>
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-primary" [disabled]="registerForm.invalid">Submit</button>
+          <a routerLink="/login" class="pull-right pt-3">Login</a>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

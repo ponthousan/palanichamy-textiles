@@ -1,0 +1,31 @@
+<div class="container d-flex justify-content-center">
+  <mat-card class="w-50" appearance="outlined">
+    <mat-card-header class="mb-3 justify-content-center">
+      <mat-card-title class="title">Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label class="form-label">User Name</label>
+          </div>
+          <div class="col-md-9">
+            <input type="text" class="form-control" formControlName="username" />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-3">
+            <label class="form-label">Password</label>
+          </div>
+          <div class="col-md-9">
+            <input type="password" class="form-control" formControlName="password" />
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-primary">Submit</button>
+          <a routerLink="/register" class="pull-right pt-3">Register</a>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

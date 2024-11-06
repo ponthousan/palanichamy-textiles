@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RegisterFormRoutingModule } from './register-form-routing.module';
-import { RegisterFormComponent } from './resource/register-form.component';
+import { RegisterFormRoutingModule } from './shop-register-routing.module';
+import { RegisterFormComponent } from './resource/shop-register.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';

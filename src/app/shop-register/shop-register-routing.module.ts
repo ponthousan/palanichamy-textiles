@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RegisterFormComponent } from './resource/register-form.component';
+import { RegisterFormComponent } from './resource/shop-register.component';
 
 const routes: Routes = [
   { path: '', component: RegisterFormComponent }

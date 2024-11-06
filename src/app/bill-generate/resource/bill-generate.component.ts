@@ -28,6 +28,7 @@ import { AlertService } from '../../alert-service/service/alert.service';
   hxncode = '55095300'
   taxpercenatage = 5;
   sgtcgt = this.taxpercenatage/2;
+  // vehicleno = '';
   vehicleno = 'TN 49 L 2160'
   // vehicleno = 'TN 76 AF 4359'
   gstvaluefind: any;
@@ -215,7 +216,7 @@ import { AlertService } from '../../alert-service/service/alert.service';
   exportAsPDF(pdfOption: any, pdfData: any) {
     const serialno = pdfData.customer_bill_no;
     const modetransport = (pdfData.customer_mode_transport == 1) ? 'VAN' : (pdfData.customer_mode_transport == 2) ? 'Jeyavilas' : (pdfData.customer_mode_transport == 3) ? 'TRMS LORRY' : 'VAN';
-    const vehicleNo = (pdfData.customer_mode_transport == 1) ? this.vehicleno : '..............................';
+    const vehicleNo = (pdfData.customer_mode_transport == 1 && this.vehicleno) ? this.vehicleno : '..............................';
     const billdate = pdfData.customer_bill_date;
     const noofbag = pdfData.customer_no_of_bag;
     const description = pdfData.customer_description;

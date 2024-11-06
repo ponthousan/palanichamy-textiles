@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
     {
       label: 'Shop Details',
       icon: 'pi pi-pw pi-file',
-      routerLink: '/register-form'
+      routerLink: '/shop-register'
     },
     {
       label: 'Yarn Data',

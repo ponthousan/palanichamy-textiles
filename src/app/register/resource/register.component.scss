@@ -1,0 +1,23 @@
+::ng-deep {
+  .header, .sidebar {
+    display: none;
+  }
+  .maincontent {
+    width: 100%;
+  }
+}
+
+.form-control:focus {
+  border-color: #ccc;
+  box-shadow: none;
+}
+input {
+  cursor: auto;
+}
+// .ng-dirty.ng-invalid, .ng-touched.ng-invalid {
+//  border: 1px solid red;
+// }
+.showpassword-icon .input-group-text {
+  display: block;
+  background-color: #fff;
+}
