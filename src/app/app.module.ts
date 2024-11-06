@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import {PanelMenuModule} from 'primeng/panelmenu';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,30 +12,23 @@ import { AlertModule } from './alert-service/alert.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {MaterialExampleModule} from '../material.module';
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    PanelMenuModule,
-    AlertModule,
-    MaterialExampleModule,
-    TranslateModule.forRoot({
-      loader: {
-         provide: TranslateLoader,
-         useFactory: httpTranslateLoader,
-         deps: [HttpClient]
-         },
-         isolate: true
-      })
-  ],
-  providers: [AlertService],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        PanelMenuModule,
+        AlertModule,
+        MaterialExampleModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: httpTranslateLoader,
+                deps: [HttpClient]
+            },
+            isolate: true
+        })], providers: [AlertService, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
 export function httpTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http);
