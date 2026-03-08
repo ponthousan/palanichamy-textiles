@@ -5,9 +5,10 @@ import { MenuItem } from 'primeng/api';
 import { I18nService } from './i18n-service/i18n-service.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    standalone: false
 })
 export class AppComponent implements OnInit {
   title = 'angular-application';

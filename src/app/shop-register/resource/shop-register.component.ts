@@ -5,9 +5,10 @@ import { RegisterFormService } from '../service/shop-register.service'
 import { I18nService } from 'src/app/i18n-service/i18n-service.service';
 
 @Component({
-  selector: 'app-shop-register',
-  templateUrl: './shop-register.component.html',
-  styleUrls: ['./shop-register.component.scss']
+    selector: 'app-shop-register',
+    templateUrl: './shop-register.component.html',
+    styleUrls: ['./shop-register.component.scss'],
+    standalone: false
 })
 export class RegisterFormComponent implements OnInit {
   searchMoviesCtrl = new FormControl();
