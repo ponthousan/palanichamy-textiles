@@ -12,11 +12,15 @@
           <div class="col-md-9">
             <input type="text" class="form-control" formControlName="username" />
           </div>
-          <div
-            *ngIf="registerForm.controls['username'].invalid && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)">
-            <div class="text-danger" *ngIf="registerForm.controls['username'].errors?.['required']">Username is required
+          @if (registerForm.controls['username'].invalid && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)) {
+            <div
+              >
+              @if (registerForm.controls['username'].errors?.['required']) {
+                <div class="text-danger">Username is required
+                </div>
+              }
             </div>
-          </div>
+          }
         </div>
         <div class="row mb-3">
           <div class="col-md-3">
@@ -25,11 +29,15 @@
           <div class="col-md-9">
             <input type="text" class="form-control" formControlName="username" />
           </div>
-          <div
-            *ngIf="registerForm.controls['username'].invalid && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)">
-            <div class="text-danger" *ngIf="registerForm.controls['username'].errors?.['required']">Username is required
+          @if (registerForm.controls['username'].invalid && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)) {
+            <div
+              >
+              @if (registerForm.controls['username'].errors?.['required']) {
+                <div class="text-danger">Username is required
+                </div>
+              }
             </div>
-          </div>
+          }
         </div>
         <div class="row mb-3">
           <div class="col-md-3">
@@ -40,17 +48,25 @@
               <input [type]="password" class="form-control" formControlName="password" />
               <div class="input-group-append showpassword-icon">
                 <span class="input-group-text" id="basic-addon2">
-                  <i class="fa fa-eye-slash" aria-hidden="true" (click)="showPassword()" *ngIf="!showpass"></i>
-                  <i class="fa fa-eye" aria-hidden="true" (click)="showPassword()" *ngIf="showpass"></i>
+                  @if (!showpass) {
+                    <i class="fa fa-eye-slash" aria-hidden="true" (click)="showPassword()"></i>
+                  }
+                  @if (showpass) {
+                    <i class="fa fa-eye" aria-hidden="true" (click)="showPassword()"></i>
+                  }
                 </span>
               </div>
             </div>
           </div>
-          <div
-            *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
-            <div class="text-danger" *ngIf="registerForm.controls['password'].errors?.['required']">Password is required
+          @if (registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)) {
+            <div
+              >
+              @if (registerForm.controls['password'].errors?.['required']) {
+                <div class="text-danger">Password is required
+                </div>
+              }
             </div>
-          </div>
+          }
         </div>
         <div class="row mb-3">
           <div class="col-md-3">
@@ -60,21 +76,31 @@
             <div class="input-group">
               <input [type]="password" class="form-control" formControlName="confirmpassword" />
               <div class="input-group-append showpassword-icon">
-                <span class="input-group-text" id="basic-addon2"><i class="fa fa-eye-slash" aria-hidden="true"
-                    (click)="showPassword()" *ngIf="!showpass"></i>
-                  <i class="fa fa-eye" aria-hidden="true" (click)="showPassword()" *ngIf="showpass"></i></span>
+                <span class="input-group-text" id="basic-addon2">@if (!showpass) {
+                  <i class="fa fa-eye-slash" aria-hidden="true"
+                  (click)="showPassword()"></i>
+                }
+                @if (showpass) {
+                  <i class="fa fa-eye" aria-hidden="true" (click)="showPassword()"></i>
+                }</span>
               </div>
             </div>
           </div>
-          <div
-            *ngIf="registerForm.controls['confirmpassword'].invalid && (registerForm.controls['confirmpassword'].dirty || registerForm.controls['confirmpassword'].touched)">
-            <div class="text-danger" *ngIf="registerForm.controls['confirmpassword'].errors?.['required']">Confirm
-              Password
-              is required</div>
-            <div class="text-danger" *ngIf="registerForm.controls['confirmpassword'].errors?.['confirmValidator']">
-              Password
-              and Confirm Password is not matched</div>
-          </div>
+          @if (registerForm.controls['confirmpassword'].invalid && (registerForm.controls['confirmpassword'].dirty || registerForm.controls['confirmpassword'].touched)) {
+            <div
+              >
+              @if (registerForm.controls['confirmpassword'].errors?.['required']) {
+                <div class="text-danger">Confirm
+                  Password
+                is required</div>
+              }
+              @if (registerForm.controls['confirmpassword'].errors?.['confirmValidator']) {
+                <div class="text-danger">
+                  Password
+                and Confirm Password is not matched</div>
+              }
+            </div>
+          }
         </div>
         <div class="row mb-3">
           <div class="col-md-3">
@@ -83,14 +109,20 @@
           <div class="col-md-9">
             <input type="email" class="form-control" formControlName="emailid" />
           </div>
-          <div
-            *ngIf="registerForm.controls['emailid'].invalid && (registerForm.controls['emailid'].dirty || registerForm.controls['emailid'].touched)">
-            <div class="text-danger" *ngIf="registerForm.controls['emailid'].errors?.['required']">Email Id is required
+          @if (registerForm.controls['emailid'].invalid && (registerForm.controls['emailid'].dirty || registerForm.controls['emailid'].touched)) {
+            <div
+              >
+              @if (registerForm.controls['emailid'].errors?.['required']) {
+                <div class="text-danger">Email Id is required
+                </div>
+              }
+              @if (registerForm.controls['emailid'].errors?.['pattern']) {
+                <div class="text-danger">Please enter correct
+                  Email
+                Id</div>
+              }
             </div>
-            <div class="text-danger" *ngIf="registerForm.controls['emailid'].errors?.['pattern']">Please enter correct
-              Email
-              Id</div>
-          </div>
+          }
         </div>
         <div class="row mb-3">
           <div class="col-md-3">
@@ -99,11 +131,15 @@
           <div class="col-md-9">
             <input type="number" class="form-control" formControlName="phonenumber" />
           </div>
-          <div
-            *ngIf="registerForm.controls['phonenumber'].invalid && (registerForm.controls['phonenumber'].dirty || registerForm.controls['phonenumber'].touched)">
-            <div class="text-danger" *ngIf="registerForm.controls['phonenumber'].errors?.['required']">Phone Number is
-              required</div>
-          </div>
+          @if (registerForm.controls['phonenumber'].invalid && (registerForm.controls['phonenumber'].dirty || registerForm.controls['phonenumber'].touched)) {
+            <div
+              >
+              @if (registerForm.controls['phonenumber'].errors?.['required']) {
+                <div class="text-danger">Phone Number is
+                required</div>
+              }
+            </div>
+          }
         </div>
         <div class="row mb-3">
           <div class="col-md-3">
@@ -112,11 +148,15 @@
           <div class="col-md-9">
             <input type="text" class="form-control" formControlName="address1" />
           </div>
-          <div
-            *ngIf="registerForm.controls['address1'].invalid && (registerForm.controls['address1'].dirty || registerForm.controls['address1'].touched)">
-            <div class="text-danger" *ngIf="registerForm.controls['address1'].errors?.['required']">Address1 is required
+          @if (registerForm.controls['address1'].invalid && (registerForm.controls['address1'].dirty || registerForm.controls['address1'].touched)) {
+            <div
+              >
+              @if (registerForm.controls['address1'].errors?.['required']) {
+                <div class="text-danger">Address1 is required
+                </div>
+              }
             </div>
-          </div>
+          }
         </div>
         <div class="row mb-3">
           <div class="col-md-3">
@@ -133,10 +173,14 @@
           <div class="col-md-9">
             <input type="text" class="form-control" formControlName="city" />
           </div>
-          <div
-            *ngIf="registerForm.controls['city'].invalid && (registerForm.controls['city'].dirty || registerForm.controls['city'].touched)">
-            <div class="text-danger" *ngIf="registerForm.controls['city'].errors?.['required']">City is required</div>
-          </div>
+          @if (registerForm.controls['city'].invalid && (registerForm.controls['city'].dirty || registerForm.controls['city'].touched)) {
+            <div
+              >
+              @if (registerForm.controls['city'].errors?.['required']) {
+                <div class="text-danger">City is required</div>
+              }
+            </div>
+          }
         </div>
         <div class="row mb-3">
           <div class="col-md-3">
@@ -145,11 +189,15 @@
           <div class="col-md-9">
             <input type="text" class="form-control" formControlName="district" />
           </div>
-          <div
-            *ngIf="registerForm.controls['district'].invalid && (registerForm.controls['district'].dirty || registerForm.controls['district'].touched)">
-            <div class="text-danger" *ngIf="registerForm.controls['district'].errors?.['required']">District is required
+          @if (registerForm.controls['district'].invalid && (registerForm.controls['district'].dirty || registerForm.controls['district'].touched)) {
+            <div
+              >
+              @if (registerForm.controls['district'].errors?.['required']) {
+                <div class="text-danger">District is required
+                </div>
+              }
             </div>
-          </div>
+          }
         </div>
         <div class="row mb-3">
           <div class="col-md-3">
@@ -158,10 +206,14 @@
           <div class="col-md-9">
             <input type="text" class="form-control" formControlName="state" />
           </div>
-          <div
-            *ngIf="registerForm.controls['state'].invalid && (registerForm.controls['state'].dirty || registerForm.controls['state'].touched)">
-            <div class="text-danger" *ngIf="registerForm.controls['state'].errors?.['required']">State is required</div>
-          </div>
+          @if (registerForm.controls['state'].invalid && (registerForm.controls['state'].dirty || registerForm.controls['state'].touched)) {
+            <div
+              >
+              @if (registerForm.controls['state'].errors?.['required']) {
+                <div class="text-danger">State is required</div>
+              }
+            </div>
+          }
         </div>
         <div>
           <button class="btn btn-primary" [disabled]="registerForm.invalid">Submit</button>

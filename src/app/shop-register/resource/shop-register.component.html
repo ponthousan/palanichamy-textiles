@@ -6,18 +6,26 @@
         <label class="mb-3">{{'textiles.shopname' | translate }}</label>
         <div>
           <input type="text" class="form-control" formControlName="shopName" required />
-          <div *ngIf="shopDetails.submitted && f['shopName'].errors">
-            <div *ngIf="f['shopName'].errors['required']" class="text-danger">Please enter shop name</div>
-          </div>
+          @if (shopDetails.submitted && f['shopName'].errors) {
+            <div>
+              @if (f['shopName'].errors['required']) {
+                <div class="text-danger">Please enter shop name</div>
+              }
+            </div>
+          }
         </div>
       </div>
       <div class="col-md-6">
         <label class="mb-3">GST No</label>
         <div>
           <input type="text" class="form-control" formControlName="shopGstNo" required />
-          <div *ngIf="shopDetails.submitted && f['shopGstNo'].errors">
-            <div *ngIf="f['shopGstNo'].errors['required']" class="text-danger">Please enter shop gst no</div>
-          </div>
+          @if (shopDetails.submitted && f['shopGstNo'].errors) {
+            <div>
+              @if (f['shopGstNo'].errors['required']) {
+                <div class="text-danger">Please enter shop gst no</div>
+              }
+            </div>
+          }
         </div>
       </div>
     </div>
@@ -26,9 +34,13 @@
         <label class="mb-3">Address 1</label>
         <div>
           <input type="text" class="form-control" formControlName="shopAddress1" required />
-          <div *ngIf="shopDetails.submitted && f['shopAddress1'].errors">
-            <div *ngIf="f['shopAddress1'].errors['required']" class="text-danger">Please enter shop address1 name</div>
-          </div>
+          @if (shopDetails.submitted && f['shopAddress1'].errors) {
+            <div>
+              @if (f['shopAddress1'].errors['required']) {
+                <div class="text-danger">Please enter shop address1 name</div>
+              }
+            </div>
+          }
         </div>
       </div>
       <div class="col-md-6">
@@ -43,18 +55,26 @@
         <label class="mb-3">City</label>
         <div>
           <input type="text" class="form-control" formControlName="shopCity" required />
-          <div *ngIf="shopDetails.submitted && f['shopCity'].errors">
-            <div *ngIf="f['shopCity'].errors['required']" class="text-danger">Please enter shop city name</div>
-          </div>
+          @if (shopDetails.submitted && f['shopCity'].errors) {
+            <div>
+              @if (f['shopCity'].errors['required']) {
+                <div class="text-danger">Please enter shop city name</div>
+              }
+            </div>
+          }
         </div>
       </div>
       <div class="col-md-6">
         <label class="mb-3">Pincode</label>
         <div>
           <input type="text" class="form-control" formControlName="shopPincode" required />
-          <div *ngIf="shopDetails.submitted && f['shopPincode'].errors">
-            <div *ngIf="f['shopPincode'].errors['required']" class="text-danger">Please enter shop pincode name</div>
-          </div>
+          @if (shopDetails.submitted && f['shopPincode'].errors) {
+            <div>
+              @if (f['shopPincode'].errors['required']) {
+                <div class="text-danger">Please enter shop pincode name</div>
+              }
+            </div>
+          }
         </div>
       </div>
     </div>
@@ -63,18 +83,26 @@
         <label class="mb-3">District</label>
         <div>
           <input type="text" class="form-control" formControlName="shopDistrict" required />
-          <div *ngIf="shopDetails.submitted && f['shopDistrict'].errors">
-            <div *ngIf="f['shopDistrict'].errors['required']" class="text-danger">Please enter shop district name</div>
-          </div>
+          @if (shopDetails.submitted && f['shopDistrict'].errors) {
+            <div>
+              @if (f['shopDistrict'].errors['required']) {
+                <div class="text-danger">Please enter shop district name</div>
+              }
+            </div>
+          }
         </div>
       </div>
       <div class="col-md-6">
         <label class="mb-3">State</label>
         <div>
           <input type="text" class="form-control" formControlName="shopState" required />
-          <div *ngIf="shopDetails.submitted && f['shopState'].errors">
-            <div *ngIf="f['shopState'].errors['required']" class="text-danger">Please enter shop state name</div>
-          </div>
+          @if (shopDetails.submitted && f['shopState'].errors) {
+            <div>
+              @if (f['shopState'].errors['required']) {
+                <div class="text-danger">Please enter shop state name</div>
+              }
+            </div>
+          }
         </div>
       </div>
     </div>
@@ -87,33 +115,33 @@
 </form>
 <p-table [value]="getCustomerData" responsiveLayout="scroll">
   <ng-template pTemplate="header">
-      <tr>
-          <th>Shop Name</th>
-          <th>GST No</th>
-          <th>Address1</th>
-          <th>Address2</th>
-          <th>City</th>
-          <th>Pincode</th>
-          <th>District</th>
-          <th>State</th>
-          <th>Edit</th>
-          <th>Delete</th>
-      </tr>
+    <tr>
+      <th>Shop Name</th>
+      <th>GST No</th>
+      <th>Address1</th>
+      <th>Address2</th>
+      <th>City</th>
+      <th>Pincode</th>
+      <th>District</th>
+      <th>State</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
   </ng-template>
   <ng-template pTemplate="body" let-data>
-      <tr>
-          <td>{{data.customer_name}}</td>
-          <td>{{data.customer_gst_no}}</td>
-          <td>{{data.customer_address1}}</td>
-          <td>{{data.customer_address2}}</td>
-          <td>{{data.customer_city}}</td>
-          <td>{{data.customer_pincode}}</td>
-          <td>{{data.customer_district}}</td>
-          <td>{{data.customer_state}}</td>
-          <td>
-            <a (click)="editShopData(data)"><i class="fa fa-edit"></i></a>
-          </td>
-          <td><i class="fa fa-trash"></i></td>
-      </tr>
+    <tr>
+      <td>{{data.customer_name}}</td>
+      <td>{{data.customer_gst_no}}</td>
+      <td>{{data.customer_address1}}</td>
+      <td>{{data.customer_address2}}</td>
+      <td>{{data.customer_city}}</td>
+      <td>{{data.customer_pincode}}</td>
+      <td>{{data.customer_district}}</td>
+      <td>{{data.customer_state}}</td>
+      <td>
+        <a (click)="editShopData(data)"><i class="fa fa-edit"></i></a>
+      </td>
+      <td><i class="fa fa-trash"></i></td>
+    </tr>
   </ng-template>
 </p-table>
