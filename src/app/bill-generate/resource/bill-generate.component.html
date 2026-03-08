@@ -1,7 +1,6 @@
-
 <form [formGroup]="billGenerateForm" #billDetails="ngForm" (ngSubmit)="billGenerateForm.valid && saveBillDetails()"
   class="border border-success rounded p-3">
-  <div class="header pb-3" style="font-size: 20px;">
+  <div class="header pb-3">
     <!-- <img src="{{url}}/assets/Ponnayiram.jpg"/> -->
   {{'textiles.name' | translate }}</div>
   <div class="register-body">
@@ -176,7 +175,7 @@
 <div class="select-year row m-3" style="padding: 0 0 0 80%;">
   <p-dropdown [options]="selectedYear" (onChange)="getBillDetails($event.value)" [(ngModel)]="currentYear" optionLabel="name"optionLabel="name" optionValue="code"></p-dropdown>
 </div>
-<p-table [value]="getBillData" responsiveLayout="scroll" [paginator]="true" [rows]="20"[rowsPerPageOptions]="[5, 10, 20]">
+<p-table [value]="getBillData" responsiveLayout="scroll">
   <ng-template pTemplate="header">
     <tr>
       <th>Bill No</th>
