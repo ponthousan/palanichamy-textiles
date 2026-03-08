@@ -14,11 +14,10 @@ import { AlertService } from '../../alert-service/service/alert.service';
 (<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
-    selector: 'app-bill-generate',
-    templateUrl: './bill-generate.component.html',
-    styleUrls: ['./bill-generate.component.scss'],
-    providers: [DatePipe, NumberToWordsPipe],
-    standalone: false
+  selector: 'app-bill-generate',
+  templateUrl: './bill-generate.component.html',
+  styleUrls: ['./bill-generate.component.scss'],
+  providers: [DatePipe, NumberToWordsPipe]
 })
   export class BillGenerateComponent implements OnInit {
   getCustomerData:any = [];

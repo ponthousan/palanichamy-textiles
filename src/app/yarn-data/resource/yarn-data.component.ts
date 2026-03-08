@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
-    selector: 'app-yarn-data',
-    templateUrl: './yarn-data.component.html',
-    styleUrls: ['./yarn-data.component.scss'],
-    standalone: false
+  selector: 'app-yarn-data',
+  templateUrl: './yarn-data.component.html',
+  styleUrls: ['./yarn-data.component.scss']
 })
 export class YarnDataComponent implements OnInit {
 
