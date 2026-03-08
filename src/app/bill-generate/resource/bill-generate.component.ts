@@ -7,11 +7,11 @@ import { DatePipe, formatDate } from '@angular/common';
 
 import { NumberToWordsPipe } from '../../pipe/number-to-words.pipe';
 
-import * as pdfMake from "pdfmake/build/pdfmake";
-import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+// import pdfMake from "pdfmake/build/pdfmake";
+// import pdfFonts from 'pdfmake/build/vfs_fonts';
 import { AlertService } from '../../alert-service/service/alert.service';
 
-(<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
+// pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
     selector: 'app-bill-generate',
@@ -649,9 +649,9 @@ import { AlertService } from '../../alert-service/service/alert.service';
       }
     };
     if (pdfOption == 'open') {
-      (<any>pdfMake).createPdf(documentDefinition).open();
+      // (<any>pdfMake).createPdf(documentDefinition).open();
     } else {
-      (<any>pdfMake).createPdf(documentDefinition).download(serialno + '.' + pdfData.customer_name + '_.pdf');
+      // (<any>pdfMake).createPdf(documentDefinition).download(serialno + '.' + pdfData.customer_name + '_.pdf');
     }
   }
 }
